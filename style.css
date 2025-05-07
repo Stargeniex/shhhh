@@ -1,0 +1,666 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0f1624;
+    color: #fff;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+  }
+  
+  .brand {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: flex-start; /* Align to the left */
+    gap: 80px; /* Increased gap for more space between buttons */
+    width: 50%; /* Reduce the width of the nav for more leftward position */
+  }
+  
+  nav a {
+    text-decoration: none;
+    font-size: 1.2rem; /* Smaller button text size */
+    color: #fff;
+    transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+    padding: 10px 20px;
+    border-radius: 5px; /* Optional: Makes the buttons slightly rounded */
+    position: relative;
+    font-weight: bold;
+    display: inline-block;
+  }
+  
+  /* Gradient text color effect (Purple to Blue) */
+  nav a:hover {
+    color: transparent; /* Make the text color transparent */
+    background-image: linear-gradient(45deg, #d77aff, #5089ed); /* Purple to Blue gradient */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    background-clip: text; /* For standard browsers */
+    transform: scale(1.1); /* Slightly scale up the button */
+    z-index: 1; /* Make sure the hovered button stays on top */
+  }
+  
+  nav a:hover ~ a {
+    transform: translateX(15px); /* Push other buttons away */
+  }
+  
+  .icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon {
+    width: 50px; /* Adjust the size of the icon */
+    height: 50px;
+  }
+
+  .icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Apply gradient to the icon using a pseudo-element */
+  .icon-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, #7a4cf7, #4c8eff);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    mix-blend-mode: screen; /* Blends the gradient with the image nicely */
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  /* Make the image slightly transparent so the gradient shows through */
+  .icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+    z-index: 0;
+    position: relative;
+  }
+  
+  /* Hover effect: scale + gradient tint */
+  .icon-link:hover {
+    transform: scale(1.1);
+  }
+  
+  .icon-link:hover::after {
+    opacity: 1;
+  }
+  
+  
+  section {
+    min-height: 100vh;
+    padding: 60px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    border-top: 1px solid #0f1624;
+  }
+  /* About section layout */
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 60px 40px;
+    box-sizing: border-box;
+  }
+  
+  .about-text {
+    flex: 1;
+    color: #ffffff;
+  }
+  
+  .animated-gradient-text {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(270deg, #ff66cc, #7a4cf7, #4c8eff, #00ffa2);
+    background-size: 600% 600%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: animateGradient 10s ease infinite;
+  }
+  
+  @keyframes animateGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .about-experience {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-size: 1.1rem;
+    color: #ccc;
+    line-height: 1.7;
+    text-align: center;
+  }
+  
+  
+  .about-text p {
+    color: #969696;
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  .about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @keyframes pulseGlow {
+    0% {
+      box-shadow: 0 0 30px #7a4cf7, 0 0 60px #4c8eff;
+    }
+    50% {
+      box-shadow: 0 0 40px #7a4cf7, 0 0 80px #4c8eff;
+    }
+    100% {
+      box-shadow: 0 0 30px #7a4cf7, 0 0 60px #4c8eff;
+    }
+  }
+  
+  .glow-circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 30px #7a4cf7, 0 0 60px #4c8eff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    animation: pulseGlow 3s infinite ease-in-out;
+  }
+  
+  
+  /* Hover effect for circle image */
+  .glow-circle:hover {
+    transform: scale(1.05); /* Slight scale-up on hover */
+  }
+  
+  
+  .glow-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  /* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+  }
+.experiences-box {
+  max-width: 800px;
+  margin: 0 auto 80px auto;
+  padding: 30px 40px;
+  background-color: #0f1624; /* Slightly lighter than #0f1624 for subtle contrast */
+  border-radius: 12px;
+  color: #717d8d;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Slightly deeper shadow for depth */
+  transition: transform 0.3s ease;
+}
+
+.experiences-box:hover {
+  transform: scale(1.01); /* Clean hover effect, not exaggerated */
+}
+
+.experiences-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.gradient-text {
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff66cc, #a855f7, #4c8eff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.years {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Timeline Styles */
+/* Timeline container */
+.timeline {
+    position: relative;
+    padding-left: 20px;
+    margin-left: 20px;
+    border-left: 1.3px solid #4c5864;
+  }
+  
+  /* Timeline item */
+  .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  /* Gradient dot on the line */
+  .timeline-dot {
+    position: absolute;
+    left: -30px; /* Adjust to position the dot on the line */
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(45deg, #ff66cc, #a855f7, #4c8eff); /* Pink to Purple to Blue gradient */
+    border-radius: 50%;
+    border: 2px solid #16153a; /* Matches the background color */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* Optional: adds a subtle shadow */
+    z-index: 1;
+  }
+  
+  /* Timeline content */
+  .timeline-content {
+    padding-left: 20px;
+  }
+  
+  /* Timeline item title */
+  .timeline-item h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  /* Timeline item description */
+  .timeline-item p {
+    font-size: 1rem;
+    color: #717d8d;
+  }
+  
+
+  .about-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    color: #fff;
+  }
+  
+  .about-box {
+    max-width: 800px;
+    margin: 0 auto 80px auto;
+    padding: 30px 40px;
+    background-color: #0f1624;
+    border-radius: 12px;
+    color: #717d8d;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: visible; /* Ensure child elements can scale */
+  }
+  
+  .about-box:hover {
+    transform: scale(3.05);
+  }
+  
+  
+  
+  @media (max-width: 768px) {
+    .about-box {
+      padding: 20px;
+      font-size: 1rem;
+    }
+  
+    .about-title {
+      font-size: 2rem;
+    }
+  }
+  
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+ 
+  .cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 50%;
+    box-shadow: 
+      0 0 80px 20px rgba(102, 255, 255, 0.12),
+      0 0 160px 40px rgba(146, 255, 255, 0.879);
+    transform: translate(-50%, -50%);
+    transition: top 0.05s ease-out, left 0.05s ease-out;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+  
+  .work-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px; /* spacing between each image */
+  }
+  
+ /* Past Work Header Gradient */
+.gradient-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff66cc, #a855f7, #4c8eff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+/* Past Work Box Layout */
+.past-work-box {
+    padding: 40px;
+    border-radius: 16px;
+    background-color: #0f1624;
+    border: 1.7px solid transparent;
+    background-image:
+      linear-gradient(#0f1624, #0f1624),
+      linear-gradient(90deg, #ff66cc, #a855f7, #4c8eff);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  /* Each Work Item */
+  .work-item {
+    text-align: center;
+    color: #717d8d;
+  }
+  
+  .work-item img {
+    width: 80%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+  }
+  
+  .work-item img:hover {
+    transform: scale(1.03);
+  }
+  
+  .work-item h3 {
+    margin: 15px 0 8px;
+    color: #fff;
+    font-size: 1.4rem;
+  }
+  
+  .work-item img {
+    width: 80%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    border: 0.9px solid #fff; /* White border */
+  }
+  
+  
+  /* Scroll Animation */
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .past-work-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px 40px;
+  }
+  
+  .past-work-title {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    font-size: 2.5rem;
+  }
+  .past-work-title {
+    text-align: left;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    font-size: 2.5rem;
+    color: #fff; /* White text */
+  }
+
+  /* Modal Styles */
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .image-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    transition: transform 0.25s ease;
+  }
+  
+  .close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .modal-content {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .zoom-in, .zoom-out {
+    font-size: 1.5rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .zoom-in:hover, .zoom-out:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  .work-item img {
+    width: 80%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+  }
+  
+  .work-item img:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Optional: Add styles for dark background */
+  body.dark-background {
+    overflow: hidden;
+  }
+
+/* Contact Section Styling */
+.contact-section {
+    background-color: #0f1624;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .contact-section .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    background: linear-gradient(90deg, #ff66cc, #a855f7, #4c8eff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .contact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-info {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #717d8d;
+  }
+  
+  .contact-icons {
+    display: flex;
+    gap: 30px; /* Space between icons */
+  }
+  
+  /* Individual Icon Styles */
+  .contact-icon {
+    width: 40px; /* Adjust icon size */
+    height: 40px; /* Adjust icon size */
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Gradient effect behind the image */
+  .contact-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #d77aff, #5089ed); /* Pink to Purple to Blue */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1; /* Place the gradient behind the image */
+    border-radius: 5px;
+  }
+  
+  /* The icon (image) itself */
+  .contact-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the icons maintain their aspect ratio */
+    z-index: 1; /* Place the image above the gradient */
+    transition: transform 0.3s ease;
+  }
+  
+  /* Hover effect: Show the gradient behind the image and zoom the image */
+  .contact-icon:hover::before {
+    opacity: 1; /* Display the gradient */
+  }
+  
+  .contact-icon:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+  }
+  
+  .contact-icon img:hover {
+    transform: scale(1.1); /* Zoom in the image itself on hover */
+  }
+  .cursor-trail {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff66cc, #a855f7, #4c8eff);
+    pointer-events: none;
+    opacity: 0.6;
+    mix-blend-mode: screen;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+  }
+  
+  /* Scrollbar Track */
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  /* Scrollbar Thumb */
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff66cc, #a855f7, #4c8eff);
+    border-radius: 10px;
+  }
